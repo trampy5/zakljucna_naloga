@@ -1,0 +1,102 @@
+  /* Container */
+  .container {
+    width: 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Sekcija izdelkov */
+
+
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Produktna kartica */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #004080;
+}
+
+.product-price {
+    font-size: 20px;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    flex: 1;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.add-to-cart {
+    padding: 10px;
+    background-color: #004080;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+/* Hover efekt na produktni kartici */
+.product-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Stilizacija gumba "Dodaj v košarico" */
+.add-to-cart {
+    padding: 10px 20px;
+    background-color: #004080;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.add-to-cart:hover {
+    background-color: #003366;
+}

@@ -1,0 +1,112 @@
+    /* Osnovni reset in slog */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        scroll-behavior: smooth;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+      /* Sekcije z animacijo ob odkrivanju */
+      .section {
+        margin-bottom: 60px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .section h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #222;
+      }
+      .section p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+      /* Postavitev slik */
+      .image-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .image-row img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      .image-row img:hover {
+        transform: scale(1.05);
+      }
+      @media (max-width: 768px) {
+        .image-row {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      /* Modal za povečavo slik */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.8);
+      }
+      .modal-content {
+        margin: 10% auto;
+        display: block;
+        max-width: 90%;
+        border-radius: 8px;
+      }
+      .close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        color: #fff;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      /* Gumb "Gor" */
+      #backToTop {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        border: none;
+        outline: none;
+        background-color: #222;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      #backToTop:hover {
+        background-color: #555;
+      }

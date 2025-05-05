@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+  }
+  .service-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding-top: 2x;
+    padding-bottom: 26px;
+    margin-top: 25px;
+  }
+  .service {
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  .service::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--bg-url);
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(50%);
+    opacity: 0.3;
+    z-index: 0;
+  }
+  .service-content {
+    position: relative;
+    z-index: 1;
+  }
+  .service h2 {
+    color: #b30000;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  .service p {
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .order-btn {
+    background-color: #b30000;
+    color: #fff;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  .order-btn:hover {
+    background-color: #ff0000;
+  }
+  /* Prilagodljivost za manjše zaslone */
+  @media (max-width: 960px) {
+    .service-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .service-container {
+      grid-template-columns: 1fr;
+    }
+  }

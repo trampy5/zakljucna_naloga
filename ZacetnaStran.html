@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MotorTech - Pripomočki in storitve za motorje</title>
+  <!-- Povezava do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ZacetnaStran.css">
+
+</head>
+<body>
+  <main class="container">
+    <section class="section" id="o-nas">
+      <h2>O nas</h2>
+      <p>Dobrodošli v ANACE MOTO, vašem zaupanja vrednem partnerju za vse, kar je povezano z motorji. Z več kot 20 leti izkušenj nudimo vrhunske pripomočke, rezervne dele in strokovne storitve, kot so popravila, menjava olja in redno vzdrževanje. Naša ekipa strokovnjakov je vedno pripravljena, da vam pomaga in svetuje pri vseh vaših potrebah.</p>
+      <div class="image-row">
+        <img src="slike/ZacetnaStran/delavnica1.webp" alt="Delavnica">
+      </div>
+    </section>
+
+    <section class="section" id="storitve">
+      <h2>Naše storitve</h2>
+      <p>Ne glede na to, ali potrebujete hitro popravilo motorja, menjava olja ali celovito vzdrževanje, smo tukaj, da vam zagotovimo najboljše rešitve. Uporabljamo najnovejšo tehnologijo in orodja, da vaš motor deluje brezhibno in dolgo časa.</p>
+      <div class="image-row">
+        <img src="slike/ZacetnaStran/moto.jpg" alt="Popravilo motorja">
+      </div>
+    </section>
+
+    <section class="section" id="pripomocki">
+      <h2>Pripomočki in rezervni deli</h2>
+      <p>V naši ponudbi boste našli vse, kar potrebujete za optimalno delovanje vašega motorja. Nudimo kakovostne pripomočke, orodja in rezervne dele, izbrane glede na najvišje standarde kakovosti. Naše izdelke skrbno izbiramo, da zagotovimo dolgo življenjsko dobo in zanesljivost pri vsakodnevni uporabi.</p>
+      <div class="image-row">
+        <img src="slike/ZacetnaStran/deli.jpg" alt="Pripomočki za motorje">
+      </div>
+    </section>
+  </main>
+  
+  <!-- Modal struktura za povečavo slik -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+
+  <script>
+    // Animacija sekcij ob odkrivanju s pomočjo Intersection Observer
+    const sections = document.querySelectorAll('.section');
+    const observerOptions = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    sections.forEach(section => observer.observe(section));
+
+
+    // Modal funkcionalnost za povečavo slik
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const images = document.querySelectorAll('.image-row img');
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      });
+    });
+    // Zapiranje modala
+    document.querySelector('.close').addEventListener('click', () => {
+      modal.style.display = "none";
+    });
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

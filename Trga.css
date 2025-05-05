@@ -1,0 +1,134 @@
+        /* Osnovni stili za izpis izdelkov */
+        .container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center;
+          margin: 20px;
+      }
+      .product-card {
+          width: 300px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 10px;
+          text-align: center;
+          box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      }
+      .product-card img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 4px;
+      }
+      .product-title {
+          font-size: 18px;
+          margin: 10px 0;
+          font-weight: bold;
+      }
+      .product-description {
+          font-size: 14px;
+          color: #555;
+          margin-bottom: 10px;
+      }
+      .price {
+          font-size: 16px;
+          color: #d40000;
+          margin-bottom: 10px;
+      }
+      .add-to-cart-button {
+          background-color: rgb(168, 19, 19);
+          color: #fff;
+          border: none;
+          padding: 10px 15px;
+          cursor: pointer;
+          border-radius: 4px;
+          font-size: 16px;
+      }
+      .add-to-cart-button:hover {
+          background-color: rgb(250, 63, 63);
+      }
+      .filter-form {
+          width: 50%;
+          margin: 40px auto; 
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+      }
+      .filter-form input,
+      .filter-form select {
+          margin: 5px;
+          padding: 5px;
+      }
+      a { color: white; }
+      
+      /* Popravljeni stili za košarico */
+      .cart-container {
+          position: fixed;
+          top: 80px; /* Premaknjeno navzdol, da se ne prekriva z navigacijo/login */
+          right: 20px;
+          cursor: pointer;
+          z-index: 1001;
+      }
+      .cart-icon {
+          width: 40px;
+          height: 40px;
+          background-image: url('slike/ikona_kosarice.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+      }
+      .cart-dropdown {
+          display: none;
+          position: absolute;
+          top: 45px;
+          right: 0;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          width: 300px;
+          max-height: 400px;
+          overflow-y: auto;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+          padding: 10px;
+      }
+      .cart-container:hover .cart-dropdown {
+          display: block;
+      }
+      .cart-item-entry {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          border-bottom: 1px solid #eee;
+          padding-bottom: 10px;
+      }
+      .cart-item-img {
+          width: 50px;
+          height: auto;
+          margin-right: 10px;
+      }
+      .cart-item-info {
+          flex: 1;
+      }
+      .quantity-controls button {
+          margin: 0 5px;
+          background-color: #eee;
+          border: none;
+          cursor: pointer;
+          padding: 2px 5px;
+      }
+      .remove-btn {
+          background: transparent;
+          border: none;
+          color: red;
+          cursor: pointer;
+          font-size: 14px;
+      }
+      .checkout-btn {
+          background-color: #d40000;
+          color: #fff;
+          border: none;
+          padding: 10px;
+          width: 100%;
+          cursor: pointer;
+          border-radius: 4px;
+          margin-top: 10px;
+      }

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <title>Dobrodošli v naši motoristični trgovini</title>
+  <link rel="stylesheet" href="../zaklucna/Trgovina.css">
+  <style>
+    /* Stil za košarico, prikaz dropdowna le ob hover */
+    .cart-container {
+      position: fixed;
+      top: 80px;  /* Increased top margin to prevent overlapping with login */
+      right: 20px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    /* Ikona košarice */
+    .cart-icon {
+      width: 40px;
+      height: 40px;
+      background-image: url('slike/ikona_kosarice.png'); /* Uporabi svojo pot do ikone */
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    /* Dropdown košarice je privzeto skrit */
+    .cart-dropdown {
+      display: none;
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      width: 300px;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      padding: 10px;
+    }
+    /* Ob hover nad celotno košarico se dropdown prikaže */
+    .cart-container:hover .cart-dropdown {
+      display: block;
+    }
+    /* Stil za posamezen vnos v košarici */
+    .cart-item-entry {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    .cart-item-img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px;
+    }
+    .cart-item-info {
+      flex: 1;
+    }
+    .quantity-controls button {
+      margin: 0 5px;
+      background-color: #eee;
+      border: none;
+      cursor: pointer;
+      padding: 2px 5px;
+    }
+    .remove-btn {
+      background: transparent;
+      border: none;
+      color: red;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .checkout-btn {
+      background-color: #d40000;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    /* Ostali stili strani */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .welcome {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .welcome h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .features {
+      padding: 40px 20px;
+      background-color: #f5f5f5;
+    }
+    .features h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .feature-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .feature {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    .feature h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Košarica, ki se prikaže le ob hover nad ikono -->
+  <div class="cart-container">
+    <div class="cart-icon"></div>
+    <div class="cart-dropdown navbar-cart-dropdown">
+      <!-- Vsebina košarice bo vstavljena s pomočjo JavaScripta -->
+    </div>
+  </div>
+
+  <section class="welcome">
+    <h2>Dobrodošli v naši motoristični trgovini</h2>
+    <section class="hero">
+      <!-- Lahko tukaj dodaš slikovni banner ali ozadje -->
+    </section>
+    <p>
+      Prodajamo vrhunske motorje, pnevmatike in kakovostne dele za motorje.
+      Naša ponudba je skrbno izbrana, da zadovolji vse motoristične navdušence.
+  </section>
+
+  <!-- Nova zanimiva sekcija z dodatnimi informacijami -->
+  <section class="features">
+    <h2>Naše Prednosti</h2>
+    <div class="feature-container">
+      <div class="feature">
+        <h3>Široka Izbira Motorjev</h3>
+        <p>Ponujamo raznovrstne motorje, prilagojene za različne stile vožnje in potrebe.</p>
+      </div>
+      <div class="feature">
+        <h3>Vrhunske Pnevmatike</h3>
+        <p>Izbrali smo najboljše pnevmatike, ki zagotavljajo varnost in stabilnost na cesti.</p>
+      </div>
+      <div class="feature">
+        <h3>Kakovostni Deli</h3>
+        <p>Naši deli so originalni in zanesljivi, kar pripomore k dolgi življenjski dobi vašega motorja.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript koda za košarico -->
+  <script>
+    // Inicializacija košarice iz localStorage, če še ni definirana
+    if (typeof window.cart === 'undefined') {
+      window.cart = JSON.parse(localStorage.getItem('cart')) || {};
+    }
+
+    // Funkcije za spreminjanje količine, odstranjevanje in prehod na blagajno
+    window.increaseQuantity = function(key) {
+      if (window.cart[key]) {
+        window.cart[key].quantity++;
+        updateAllCartDisplays();
+      }
+    };
+
+    window.decreaseQuantity = function(key) {
+      if (window.cart[key]) {
+        if (window.cart[key].quantity > 1) {
+          window.cart[key].quantity--;
+        } else {
+          delete window.cart[key];
+        }
+        updateAllCartDisplays();
+      }
+    };
+
+    window.removeFromCart = function(key) {
+      if (window.cart[key]) {
+        delete window.cart[key];
+        updateAllCartDisplays();
+      }
+    };
+
+    window.checkoutCart = function() {
+      localStorage.setItem('cart', JSON.stringify(window.cart));
+      window.location.href = "../ZAKLUCNA/blagajna.php";
+    };
+
+    window.updateAllCartDisplays = function() {
+      localStorage.setItem('cart', JSON.stringify(window.cart));
+      updateCartDisplay();
+    };
+
+    window.updateCartDisplay = function() {
+      const cartDropdown = document.querySelector('.cart-dropdown.navbar-cart-dropdown');
+      let cartItemsHTML = '';
+      let total = 0;
+      for (let key in window.cart) {
+        if (window.cart.hasOwnProperty(key)) {
+          const item = window.cart[key];
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          cartItemsHTML += `
+            <div class="cart-item-entry">
+              <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+              <div class="cart-item-info">
+                <strong>${item.name}</strong>
+                <div class="quantity-controls">
+                  <button onclick="decreaseQuantity('${key}')">–</button>
+                  <span>${item.quantity}</span>
+                  <button onclick="increaseQuantity('${key}')">+</button>
+                </div>
+                <div class="item-total">${itemTotal.toFixed(2)}€</div>
+              </div>
+              <button class="remove-btn" onclick="removeFromCart('${key}')">Odstrani</button>
+            </div>
+          `;
+        }
+      }
+      cartItemsHTML += `<div id="cart-total"><strong>Skupaj: ${total.toFixed(2)} €</strong></div>`;
+      cartItemsHTML += `<button class="checkout-btn" onclick="checkoutCart()">Na blagajno</button>`;
+      if(cartDropdown) {
+        cartDropdown.innerHTML = cartItemsHTML;
+      }
+    };
+
+    // Posodobitev prikaza košarice ob nalaganju strani
+    document.addEventListener('DOMContentLoaded', updateAllCartDisplays);
+  </script>
+</body>
+</html>

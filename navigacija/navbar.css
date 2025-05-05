@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.navbar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+/* New CSS rule to make the logo image smaller */
+.logo img {
+  max-height: 40px; /* Adjust the value as needed */
+  width: auto;
+}
+
+.navbar-hamburger {
+  display: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: #575757;
+  border-radius: 4px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  /* S tem pravilo ostaja na desni strani */
+}
+
+.login-container a,
+.login-container span {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+  font-size: 16px;
+}
+
+.login-icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+/* Dropdown meni za upravljanje računa */
+.login-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  min-width: 150px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+.login-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .navbar-header {
+    width: 100%;
+  }
+  
+  .navbar-hamburger {
+    display: block;
+  }
+  
+  .navbar-menu {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  .navbar-menu.active {
+    display: flex;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-links li {
+    margin: 10px 0;
+  }
+  
+  /* Prikažemo login element tudi na mobilnih napravah */
+  .navbar-right {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .mobile-only {
+    display: block;
+  }
+  
+  .mobile-only form,
+  .mobile-only .cart,
+  .mobile-only .login-container {
+    margin: 10px 0;
+  }
+}
+
+.login-container a:hover,
+.login-container span:hover,
+.login-dropdown a:hover {
+  color: #cc1e1e;
+}

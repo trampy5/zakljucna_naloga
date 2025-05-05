@@ -1,0 +1,83 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+/* Ogrodje obrazca */
+.Ogrodje {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    max-width: 90%;
+    transition: transform 0.3s ease-in-out;
+}
+/* Naslov obrazca */
+.Ogrodje h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+/* label */
+.Ogrodje label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+/* Vnosna polja */
+.Ogrodje input,
+.Ogrodje select,
+.Ogrodje textarea {
+    width: 90%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Ogrodje textarea {
+    resize: none;
+}
+/* Focus */
+.Ogrodje input:focus,
+.Ogrodje select:focus,
+.Ogrodje textarea:focus {
+    border-color: #cc3131;
+    outline: none;
+}
+/* Gumb za pošiljanje naročila */
+.Ogrodje button {
+    width: 100%;
+    background: #b12222;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+/* Hover efekt za gumb */
+.Ogrodje button:hover {
+    background: #a01f1f;
+}
+@media (max-width: 400px) {
+    .Ogrodje {
+        width: 90%;
+    }
+}

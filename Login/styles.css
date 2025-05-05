@@ -1,0 +1,67 @@
+body {
+    background-color: #f8fff0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    background: #218838;
+}
+
+.link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.link a {
+    color: blue;
+    text-decoration: none;
+}
+
+/* Zgornji desni kot za login/odjavo */
+.top-right {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 16px;
+}
+
+.top-right a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.top-right a:hover {
+    text-decoration: underline;
+}

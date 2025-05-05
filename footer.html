@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../zaklucna/footer.css">
+    <style>
+.site-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+}
+
+.footer-section h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-bottom: 2px solid red; 
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #222;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 10px 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>O nas</h2>
+                <p>
+                    Podjetje je naredi vse profesionalno
+                </p>
+            </div>
+            <div class="footer-section links">
+                <h2>Hitre Povezave</h2>
+                <ul>
+                    <li><a href="index.php">O nas</a></li>
+                    <li><a href="pogoji_uporabe.php">Pogoji uporabe</a></li>
+                    <li><a href="zasebnost.php">Zasebnost</a></li>
+                    <li><a href="Storitve.php">Storitve</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>Kontaktirajte nas</h2>
+                <ul>
+                    <li>Email: anacemoto@gmail.com</li>
+                    <li>Telefon: +386 123 456 789</li>
+                    <li>Naslov: Medvode, 1215 Ljubljana</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 ANACE MOTO. Vse pravice pridržane.
+        </div>
+    </footer>
+</body>
+</html>
